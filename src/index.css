@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme {
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --color-bg: #0d0d0f;
+  --color-surface: #16161a;
+  --color-surface-2: #1d1d22;
+  --color-surface-3: #26262c;
+  --color-line: #2b2b31;
+  --color-ink: #f0efec;
+  --color-ink-2: #c3c2b7;
+  --color-ink-3: #8c8b84;
+
+  /* Brand accent for primary actions and the hero number. */
+  --color-accent: #d4ff3a;
+  --color-accent-ink: #141a00;
+
+  /* Data series (dark-mode steps of the validated categorical palette). */
+  --color-series-1: #3987e5;
+  --color-series-2: #d95926;
+
+  /* Status (reserved; always paired with an icon or label). */
+  --color-good: #0ca30c;
+  --color-critical: #d03b3b;
+}
+
+:root {
+  color-scheme: dark;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thin, quiet scrollbars. */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-surface-3); border-radius: 8px; border: 2px solid var(--color-bg); }
+::-webkit-scrollbar-track { background: transparent; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgb(212 255 58 / 0.35); }
+  100% { box-shadow: 0 0 0 28px rgb(212 255 58 / 0); }
+}
+.pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.pop { animation: pop 90ms ease-out; }
